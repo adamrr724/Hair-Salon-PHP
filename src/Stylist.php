@@ -1,6 +1,4 @@
 <?php
-
-
     class Stylist
     {
         private $name;
@@ -27,7 +25,7 @@
             return $this->id;
         }
 
-        
+
     }
 
 ?>
