@@ -31,10 +31,12 @@
 
     $app->get("/stylist/{id}", function($id) use ($app) {
         $stylist = Stylist::find($id);
-        return $app['twig']->render('stylist.html.twig', array(
-            'stylist' => $stylist,
-            'clients' => $stylist->getClients()
-        ));
+        return $app['twig']->render('stylist.html.twig', array('stylist' => $stylist, 'clients' => $stylist->getClients()));
+    });
+
+    $app->get("/stylist/{id}/edit", function($id) use ($app) {
+        $new_stylist = Stylist::find($id);
+        return $app['twig']->render('stylist_edit.html.twig', array('stylist' => $new_stylist));
     });
 
     $app->post("/clients", function() use ($app) {
@@ -45,10 +47,7 @@
         $new_client = new Client($client_name, $phone, $email, $stylist_id, $id = null);
         $new_client->save();
         $stylist = Stylist::find($stylist_id);
-        return $app['twig']->render('stylist.html.twig', array(
-            'stylist' => $stylist,
-            'clients' => $stylist->getClients()
-        ));
+        return $app['twig']->render('stylist.html.twig', array('stylist' => $stylist, 'clients' => $stylist->getClients()));
     });
 
 
