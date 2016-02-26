@@ -114,6 +114,26 @@
 
         }
 
+        // function test_delete()
+        // {
+        //  //Arrange
+        //  $name = "Work stuff";
+        //  $id = null;
+        //  $test_cuisine = new Cuisine($name, $id);
+        //  $test_cuisine->save();
+        //
+        //  $name2 = "Home stuff";
+        //  $test_cuisine2 = new Cuisine($name2, $id);
+        //  $test_cuisine2->save();
+        //
+        //
+        //  //Act
+        //  $test_cuisine->delete();
+        //
+        //  //Assert
+        //  $this->assertEquals([$test_cuisine2], Cuisine::getAll());
+        // }
+
         function test_deleteAll()
         {
             //Arrange

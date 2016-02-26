@@ -58,6 +58,11 @@
             return $found_stylist;
         }
 
+        function delete()
+        {
+            $GLOBALS['DB']->exec("DELETE FROM stylists WHERE id = {$this->getId()};");
+        }
+
         static function deleteAll()
         {
             $GLOBALS['DB']->exec("DELETE FROM stylists;");

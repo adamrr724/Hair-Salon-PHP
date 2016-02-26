@@ -97,6 +97,13 @@
             return $found_client;
         }
 
+        // function delete()
+        // {
+        //     $GLOBALS['DB']->exec("DELETE FROM cuisine WHERE id = {$this->getId()};");
+        //      $GLOBALS['DB']->exec("DELETE FROM restaurant WHERE cuisine_id = {$this->getId()};");
+        //      //ideally we would remove reviews too
+        // }
+
         static function deleteAll()
         {
             $GLOBALS['DB']->exec("DELETE FROM clients");
