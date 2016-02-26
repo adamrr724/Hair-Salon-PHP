@@ -13,8 +13,23 @@ button {
 
 .buttons{
     margin-right: 2em;
+    margin-bottom: 2em;
+    text-align: center;
 }
 
 .name {
     color: #bf360c;
+}
+
+img {
+    margin-top: 1em;
+    height:5em;
+}
+
+.left{
+    margin-left: 20em;
+}
+
+.right {
+    margin-right: 20em;
 }
