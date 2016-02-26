@@ -24,7 +24,7 @@
               <button class="btn waves-effect blue darken-1 waves-light" type="submit">Update</button>
             </form>
             <br>
-            <form action="/stylist/{{ stylist.getId }}" method="post">
+            <form action="/stylist/{{ stylist.getId }}/delete" method="post">
               <input name="_method" type="hidden" value="delete">
 
               <button class="btn waves-effect blue darken-1 waves-light" type="submit">Delete this stylist</button>
