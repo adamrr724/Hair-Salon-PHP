@@ -75,7 +75,7 @@
             foreach ($returned_clients as $client) {
                 $client_name = $client['client_name'];
                 $phone = $client['phone'];
-                $email = $client['client_email'];
+                $email = $client['email'];
                 $stylist_id = $client['stylist_id'];
                 $id = $client['id'];
                 $new_client = new Client($client_name, $phone, $email, $stylist_id, $id);
@@ -84,8 +84,10 @@
             return $clients;
         }
 
-        static function deleteAll(){
-            $GLOBALS['DB']->exec("DELETE FROM client");
+        static function deleteAll()
+        {
+            $GLOBALS['DB']->exec("DELETE FROM clients");
         }
+    }
 
 ?>
