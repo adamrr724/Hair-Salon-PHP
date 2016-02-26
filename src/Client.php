@@ -115,7 +115,7 @@
             return $found_client;
         }
 
-        function delete()
+        function deleteOneClient()
         {
             $GLOBALS['DB']->exec("DELETE FROM clients WHERE id = {$this->getId()};");
         }
