@@ -20,7 +20,7 @@
     </nav>
     <div class="container">
         <div class="">
-            <h1>{{ stylist.getName }}</h1>
+            <h1 class="name">{{ stylist.getName }}</h1>
         </div>
 
         <p><a href="/stylist/{{ stylist.getId }}/edit">Edit this stylist</a></p>
@@ -29,9 +29,9 @@
             <ul>
                 {% for client in clients %}
                     <li>
-                        <h3>{{ client.getClientName }}</h3>
-                        <h4>{{ client.getPhone }}</h4>
-                        <h4>{{ client.getEmail }}</h4>
+                        <h4>{{ client.getClientName }}</h4>
+                        <h5>{{ client.getPhone }}</h5>
+                        <h5>{{ client.getEmail }}</h5>
                         <form action="/client/{{ client.getId }}/edit" method="get">
                             <button class="btn waves-effect blue darken-1 waves-light" type="submit" name="button">Edit client</button>
                         </form>

@@ -18,7 +18,7 @@
         </nav>
         <div class="container">
             <div class="">
-                <h1>Update {{ stylist.getName }}'s information: </h1>
+                <h1 class="name">Update {{ stylist.getName }}'s information: </h1>
             </div>
             <form action="/stylist/{{ stylist.getId }}" method="post">
               <input name="_method" type="hidden" value="patch" >
@@ -32,7 +32,7 @@
             <form action="/stylist/{{ stylist.getId }}/delete" method="post">
               <input name="_method" type="hidden" value="delete">
 
-              <button class="btn waves-effect blue darken-1 waves-light" type="submit">Delete this stylist</button>
+              <button class="btn waves-effect blue-grey darken-4" type="submit">Delete this stylist</button>
             </form>
         </div>
     </body>
