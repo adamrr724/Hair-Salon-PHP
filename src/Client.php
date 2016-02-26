@@ -67,10 +67,22 @@
             $this->id = $GLOBALS['DB']->lastInsertId();
         }
 
-        function update($new_client_name)
+        function updateClientName($new_client_name)
         {
             $GLOBALS['DB']->exec("UPDATE clients SET client_name = '{$new_client_name}' WHERE id = {$this->getId()};");
             $this->setClientName($new_client_name);
+        }
+
+        function updatePhone($new_phone)
+        {
+            $GLOBALS['DB']->exec("UPDATE clients SET phone = '{$new_phone}' WHERE id = {$this->getId()};");
+            $this->setPhone($new_phone);
+        }
+
+        function updateEmail($new_email)
+        {
+            $GLOBALS['DB']->exec("UPDATE clients SET email = '{$new_email}' WHERE id = {$this->getId()};");
+            $this->setEmail($new_email);
         }
 
         static function getAll()

@@ -4,8 +4,12 @@
     require_once __DIR__."/../src/Client.php";
 
     // session_start();
+    use Symfony\Component\Debug\Debug;
+    Debug::enable();
 
     $app = new Silex\Application();
+
+    $app['debug'] = true;
 
     $server = 'mysql:host=localhost:8889;dbname=hair_salon';
     $username = 'root';
@@ -66,6 +70,33 @@
     $app->get("/client/{id}/edit", function($id) use ($app) {
         $client = Client::find($id);
         return $app['twig']->render('client_edit.html.twig', array('client' => $client));
+    });
+
+    $app->patch("/client/{id}/client_name", function($id) use ($app) {
+        $new_client_name = $_POST['client_name'];
+        $client = Client::find($id);
+        $client->updateClientName($new_client_name);
+        $stylist_id = $client->getStylistId();
+        $stylist = Stylist::find($stylist_id);
+        return $app['twig']->render('stylist.html.twig', array('stylist' => $stylist, 'clients' => $stylist->getClients()));
+    });
+
+    $app->patch("/client/{id}/phone", function($id) use ($app) {
+        $new_phone = $_POST['phone'];
+        $client = Client::find($id);
+        $client->updatePhone($new_phone);
+        $stylist_id = $client->getStylistId();
+        $stylist = Stylist::find($stylist_id);
+        return $app['twig']->render('stylist.html.twig', array('stylist' => $stylist, 'clients' => $stylist->getClients()));
+    });
+
+    $app->patch("/client/{id}/email", function($id) use ($app) {
+        $new_email = $_POST['email'];
+        $client = Client::find($id);
+        $client->updateEmail($new_email);
+        $stylist_id = $client->getStylistId();
+        $stylist = Stylist::find($stylist_id);
+        return $app['twig']->render('stylist.html.twig', array('stylist' => $stylist, 'clients' => $stylist->getClients()));
     });
 
 

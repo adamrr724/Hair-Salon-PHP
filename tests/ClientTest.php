@@ -158,10 +158,54 @@
             $new_name = "Bob";
 
             //Act
-            $test_client->update($new_name);
+            $test_client->updateClientName($new_name);
 
             //Assert
             $this->assertEquals("Bob", $test_client->getClientName());
+
+        }
+
+        function testUpdatePhone()
+        {
+            //Arrange
+            $id = null;
+            $client_name = "Fred";
+            $phone = "203-456-9876";
+            $email = "hi@gmail.com";
+            $stylist_id = 1;
+
+            $test_client = new Client($client_name, $phone, $email, $stylist_id, $id);
+            $test_client->save();
+
+            $new_phone = "345-678-9876";
+
+            //Act
+            $test_client->updatePhone($new_phone);
+
+            //Assert
+            $this->assertEquals("345-678-9876", $test_client->getPhone());
+
+        }
+
+        function testUpdateEmail()
+        {
+            //Arrange
+            $id = null;
+            $client_name = "Fred";
+            $phone = "203-456-9876";
+            $email = "hi@gmail.com";
+            $stylist_id = 1;
+
+            $test_client = new Client($client_name, $phone, $email, $stylist_id, $id);
+            $test_client->save();
+
+            $new_email = "Bob@google.com";
+
+            //Act
+            $test_client->updateEmail($new_email);
+
+            //Assert
+            $this->assertEquals("Bob@google.com", $test_client->getEmail());
 
         }
 
