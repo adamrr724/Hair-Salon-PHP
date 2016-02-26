@@ -84,7 +84,7 @@
         function test_getAll()
         {
             //Arrange
-            $id = null;
+            $id = 1;
             $client_name = "Fred";
             $phone = "203-456-9876";
             $email = "hi@gmail.com";
@@ -100,7 +100,6 @@
             $stylist_id2 = 2;
 
             $test_client2 = new Client($client_name2, $phone2, $email2, $stylist_id2, $id2);
-
             $test_client2->save();
 
 
@@ -110,6 +109,39 @@
             //Assert
             $this->assertEquals([$test_client, $test_client2], $result);
         }
+
+        function test_getClients()
+        {
+            //Arrange
+            $name = "Adam";
+            $id = null;
+            $test_stylist = new Stylist($name, $id);
+            $test_stylist->save();
+
+            $stylist_id = $test_stylist->getId();
+
+            $client_name = "Fred";
+            $phone = "203-456-9876";
+            $email = "hi@gmail.com";
+
+            $test_client = new Client($client_name, $phone, $email, $stylist_id, $id);
+            $test_client->save();
+
+            $client_name2 = "Joe";
+            $phone2 = "203-456-9987";
+            $email2 = "bye@gmail.com";
+
+            $test_client2 = new Client($client_name2, $phone2, $email2, $stylist_id, $id);
+
+            $test_client2->save();
+
+            //Act
+            $result = $test_stylist->getClients();
+
+            //Assert
+            $this->assertEquals([$test_client, $test_client2], $result);
+        }
+
 
         function testUpdateClientName()
         {
