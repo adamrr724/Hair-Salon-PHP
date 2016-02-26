@@ -83,6 +83,37 @@
             $this->assertEquals(true, is_numeric($result));
         }
 
+        function test_find()
+        {
+            //Arrange
+            $id = 1;
+            $client_name = "Fred";
+            $phone = "203-456-9876";
+            $email = "hi@gmail.com";
+            $stylist_id = 1;
+
+            $test_client = new Client($client_name, $phone, $email, $stylist_id, $id);
+
+            $test_client->save();
+
+            $id2 = 2;
+            $client_name2 = "Joe";
+            $phone2 = "203-456-9987";
+            $email2 = "bye@gmail.com";
+            $stylist_id2 = 2;
+
+            $test_client2 = new Client($client_name2, $phone2, $email2, $stylist_id2, $id2);
+
+            $test_client2->save();
+
+            //Act
+            $result = Client::find($test_client2->getId());
+
+            //Assert
+            $this->assertEquals($test_client2, $result);
+
+        }
+
         function test_deleteAll()
         {
             //Arrange
