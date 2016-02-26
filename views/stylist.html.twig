@@ -27,7 +27,7 @@
                         <h3>{{ client.getClientName }}</h3>
                         <h4>{{ client.getPhone }}</h4>
                         <h4>{{ client.getEmail }}</h4>
-                        <form action="/clients/{{ client.getId }}/edit" method="get">
+                        <form action="/client/{{ client.getId }}/edit" method="get">
                             <button class="btn waves-effect blue darken-1 waves-light" type="submit" name="button">Edit client</button>
                         </form>
                     </li>
